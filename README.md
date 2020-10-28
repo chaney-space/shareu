@@ -14,6 +14,7 @@ https://classic.yarnpkg.com/en/docs/install#windows-stable
 #### 프론트 (Sass) 환경 팩키지 설치
 작업 폴더를 생성 후 해당 폴더로 이동해 터미너를 열고 아래 명령 실행
 > git clone https://github.com/smarteist/Frontent-Starter-Boilerplate
+
 클론 완료 후 아래 명령 실행해 설치 진행
 > yarn install
 
