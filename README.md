@@ -22,5 +22,11 @@ https://classic.yarnpkg.com/en/docs/install#windows-stable
 클론 완료 후 아래 명령 실행해 설치 진행
 > yarn install
 
+#### 작업 서버 실행
+> yarn start
 
+
+
+- 작업 폴더 ./src
+- 빌드 폴더 ./dist (scss 파일이 css 로 변경되어 저장되는 폴더이므로 직접 수정하지 않습니다.)
 
