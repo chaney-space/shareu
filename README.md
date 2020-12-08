@@ -1,9 +1,15 @@
 # 웹 기술 팁&amp;테크 공유
 
 
-### 마이크로 UI Interaction Resources
+### 마이크로 Web UI Interaction Resources
 
-https://abduzeedo.com/node/85571
+https://codyhouse.co/library/
+
+
+
+### 애니메이션 리소스 (라이브러리)
+
+https://animista.net/
 
 
 
