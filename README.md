@@ -11,6 +11,13 @@ https://codyhouse.co/library/
 
 https://animista.net/
 
+https://github.com/anater/tachyons-animate
+
+https://ianlunn.github.io/Hover/
+
+https://www.minimamente.com/project/magic/
+
+http://cssanimation.io/
 
 
 
