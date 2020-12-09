@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  
+  <div class="row">
+    <div class="col" data-value="1" data-likes="2">
+      <input type="checkbox" name="item" id="item-1">
+      <label for="item-1">
+        one
+        <span>Likes: 2</span>
+      </label>
+    </div>
+    <div class="col" data-value="3" data-likes="10">
+      <input type="checkbox" name="item" id="item-2">
+      <label for="item-2">
+        three
+        <span>Likes: 10</span>
+      </label>
+    </div>
+    <div class="col" data-value="5" data-likes="1">
+      <input type="checkbox" name="item" id="item-3">
+      <label for="item-3">
+        five
+        <span>Likes: 1</span>
+      </label>
+    </div>
+    <div class="col" data-value="200" data-likes="102">
+      <input type="checkbox" name="item" id="item-4">
+      <label for="item-4">
+        two hundred
+        <span>Likes: 102</span>
+      </label>
+    </div>
+    <div class="col" data-value="4" data-likes="232">
+      <input type="checkbox" name="item" id="item-5">
+      <label for="item-5">
+        four
+        <span>Likes: 232</span>
+      </label>
+    </div>
+    <div class="col" data-value="2" data-likes="12">
+      <input type="checkbox" name="item" id="item-6">
+      <label for="item-6">
+        two
+        <span>Likes: 12</span>
+      </label>
+    </div>
+    <div class="col" data-value="400" data-likes="24">
+      <input type="checkbox" name="item" id="item-7">
+      <label for="item-7">
+        four hundred
+        <span>Likes: 24</span>
+      </label>
+    </div>
+  </div>
+  
+  <div id="button-group">
+    <button class="order" id="asc" data-order="ascendingByValue">ASC BY VALUE</button>
+    <button class="order" id="dec" data-order="descendingByValue">DESC BY VALUE</button>
+    <button class="order" id="decName" data-order="descendingByLikes">DESC BY LIKES</button>
+    <button class="order" id="ascName" data-order="ascendingByLikes">ASC BY LIKES</button>
+  </div>
+
+  <script>
+    const buttonContainer = document.getElementById('button-group')
+
+    const orderFunctions = {
+      ascendingByValue: (a, b) => a.dataset.value - b.dataset.value,
+      descendingByValue: (a, b) => b.dataset.value - a.dataset.value,
+      ascendingByLikes: (a, b) => a.dataset.likes - b.dataset.likes,
+      descendingByLikes: (a, b) => b.dataset.likes - a.dataset.likes
+    }
+
+    let currentOrder = orderFunctions.ascendingByValue
+
+    buttonContainer.addEventListener('click', (e) => {
+      // Dont sort if empty space in the parent element has been clicked insted of the buttons
+      if (e.target.id == "button-group") return;
+
+      currentOrder = orderFunctions[e.target.dataset.order]
+      order()
+    })
+
+    const order = function () {
+      const ordered = [...document.getElementsByClassName('col')].sort(currentOrder)
+      ordered.forEach((elem, index) => {
+        elem.style.order = index
+      })
+    }
+  </script>
+</body>
+</html>
