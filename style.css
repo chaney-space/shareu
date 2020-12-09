@@ -1,0 +1,58 @@
+
+
+
+.list-items {
+	list-style: none;
+	margin: 40px;
+}
+
+.list-items li {
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	border: 1px solid #ccc;
+	background-color: greenyellow;
+	transition: all .1s ease;
+	-webkit-transition: all .1s ease;
+}
+
+.list-items li.on {
+	background-color: #fff;
+	transition: all .1s ease;
+	-webkit-transition: all .1s ease;
+}
+
+.list-items li label {
+	display: block;
+	width: 100%;
+	padding: 18px;
+}
+
+.sort-control {
+	text-align: center;
+}
+
+.sort-control button {
+	padding: 10px;
+	min-width: 80px;
+}
+
+
+
+/* flex order */
+.row {
+  display: flex;
+  flex-direction: column;
+}
+.col {
+  padding: 20px;
+  border: 1px solid gray;
+  margin: 5px;
+  order: 3;
+
+}
+.col span {
+	float: right;
+	color: gray;
+	font-size: 11px;
+}
