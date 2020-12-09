@@ -1,6 +1,5 @@
 
 
-
 .list-items {
 	list-style: none;
 	margin: 40px;
@@ -11,15 +10,10 @@
 	align-items: center;
 	padding: 0 10px;
 	border: 1px solid #ccc;
-	background-color: greenyellow;
-	transition: all .1s ease;
-	-webkit-transition: all .1s ease;
-}
-
-.list-items li.on {
 	background-color: #fff;
-	transition: all .1s ease;
-	-webkit-transition: all .1s ease;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	animation: slidein .5s forwards;
 }
 
 .list-items li label {
@@ -35,6 +29,31 @@
 .sort-control button {
 	padding: 10px;
 	min-width: 80px;
+}
+
+@keyframes slidein {
+  0% {
+		/* height: 0px; */
+		top: -10px;
+		transform: scale(.95);
+		transition: all .3s ease-in;
+    opacity: 0;
+  }
+  50% {
+		/* height: auto; */
+		border: 2px solid #333;
+		background-color: #cebff7;
+    transform: scale(1.02);
+		transition: all .3s ease;
+    opacity: .5;
+	}
+	100% {
+		top: 0;
+		/* height: auto; */
+    transform: scale(1);
+		transition: all .1s ease-out;
+    opacity: 1;
+	}
 }
 
 
