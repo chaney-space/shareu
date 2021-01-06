@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,body {
+      height: 100%;
+      background-image: linear-gradient(-105deg, #009acc, #363795);
+    }
+
+    .svg-spinner {
+      position: relative;
+      width: 300px;
+      height: 220px;
+      background-color: #fff;
+    }
+    .svg-spinner:after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      width: 50px;
+      height: 50px;
+      /* Date-URI 로 변환한 svg,css animation으로 배경이미지 적용 */
+      background-image: url('data:image/svg+xml,%3Csvg class="spinner" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"%3E%3Cstyle type="text/css"%3E .spinner %7B animation: rotate 2s linear infinite; z-index: 2; position: absolute; top: 50%25; left: 50%25; margin: -25px 0 0 -25px; width: 50px; height: 50px; %7D .spinner .path %7B stroke: hsl(210, 70%25, 75%25); stroke-linecap: round; animation: dash 1.5s ease-in-out infinite; %7D @keyframes rotate %7B 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1, 150; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 90, 150; stroke-dashoffset: -35; %7D 100%25 %7B stroke-dasharray: 90, 150; stroke-dashoffset: -124; %7D %7D %3C/style%3E%3Ccircle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"%3E%3C/circle%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>Data URI로 변환한 SVG 애니메이션 로딩 스피너 적용하기<h1>
+
+  <!-- 로딩중.. -->
+  <div class="svg-spinner"></div>
+  
+  <!-- 배경이미지 로딩 후 callback 함수로 svg-spinner 클래스 제거 작업 적용 필요 -->
+  <!-- 제거 작업 하지 않을 경우, svg 배경이미지 뒤에서 계속 돌아가면 퍼포먼스 저하 예상됨 -->
+  <div style="background-image: url(https://assets.unenvironment.org/s3fs-public/2017-11/Forest_trees.jpg?null);" class="svg-spinner"></div>
+
+  <!-- 아래 svg 요소는 Data URI로 변화하기 전 원본 리소스 -->
+  <!-- svg 태그 내 css 적용 후, SVG to Data URI converter로 변환작업 후 상단 style에 적용 -->
+  <!-- <svg class="spinner" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css">
+      .spinner {
+        animation: rotate 2s linear infinite;
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -25px 0 0 -25px;
+        width: 50px;
+        height: 50px;
+      }
+      .spinner .path {
+        stroke: hsl(210, 70%, 75%);
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+      }
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes dash {
+        0% {
+          stroke-dasharray: 1, 150;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: 90, 150;
+          stroke-dashoffset: -35;
+        }
+        100% {
+          stroke-dasharray: 90, 150;
+          stroke-dashoffset: -124;
+        }
+      }
+    </style>
+    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+  </svg> -->
+
+</body>
+</html>
