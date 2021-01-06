@@ -23,7 +23,7 @@ http://bouncejs.com/
 
 
 
-### Sass(SCSS) 마크업을 위한 환경 설치 (VScode 편집기 기준)
+### Sass(SCSS) 마크업을 위한 환경 설치 (VScode 기준)
 
 
 
