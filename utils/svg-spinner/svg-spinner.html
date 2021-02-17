@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>데이터 로딩 스피너</title>
   <style>
     html,body {
       height: 100%;
-      background-image: linear-gradient(-105deg, #009acc, #363795);
+      /* background-image: linear-gradient(-105deg, #009acc, #363795); */
+      font-size: 16px;
     }
-    .svg-spinner {
+    img {
+      width: 100%;
+    }
+    .item {
       position: relative;
-      width: 300px;
+      width: 100%;
       height: 220px;
       background-color: #fff;
+    }
+    .item p {
+      position: absolute;
+      z-index: 9;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+      color: white;
     }
     .svg-spinner:after {
       content: '';
@@ -33,17 +45,28 @@
 </head>
 <body>
 
-  <h1>Data URI로 변환한 SVG 애니메이션 로딩 스피너 적용하기<h1>
+  <h1>Data URI로 변환한 SVG 애니메이션 로딩 스피너 적용하기</h1>
+  <p>
+    배경이미지 또는 요소 로딩시 적용 가능한 JS 라이브러리 사용 예시
+  </p>
 
-  <!-- 로딩중.. -->
-  <div class="svg-spinner"></div>
+  <!-- 로딩중 마크업 요소만 사용시(Not included JS) for 개발단 -->
+  <!-- <div class="svg-spinner"></div> -->
   
-  <!-- 로딩 후 -->
+  <!-- 배경이미지 로딩 프로그래스 샘플 마크업 -->
   <!-- 배경이미지 로딩 후 svg-spinner 클래스 제거 작업 필요 -->
-  <!-- 제거 하지 않을 경우, svg 배경이미지 뒤에서 계속 돌아가면 퍼포먼스 저하 예상됨 -->
-  <div style="background-image: url(https://assets.unenvironment.org/s3fs-public/2017-11/Forest_trees.jpg?null);" class="svg-spinner"></div>
+  <h2>background-image 적용 예시</h2>
+  <div style="background-image: url(https://assets.unenvironment.org/s3fs-public/2017-11/Forest_trees.jpg?null);" class="item svg-spinner">
+    <p>배경이미지에 적용</p>
+  </div>
+  <div style="background-image: url(https://data.1freewallpapers.com/download/landscape-view-of-cliff-fall-forest-mountains-in-italy-4k-5k-nature.jpg);" class="item svg-spinner">
+    <p>배경이미지에 적용</p>
+  </div>
+  <div style="background-image: url(https://i.pinimg.com/originals/bc/c0/86/bcc0860537b4030e6e62fa0a38ef907b.jpg);" class="item svg-spinner">
+    <p>배경이미지에 적용</p>
+  </div>
 
-  <!-- 아래 svg 요소는 Data URI로 변화하기 전 원본 리소스 -->
+  <!-- 아래 svg 스피너 요소는 Data URI로 변화하기 전 원본 리소스 -->
   <!-- svg 태그 내 css 적용 후, SVG to Data URI converter로 변환작업 후 상단 style에 적용 -->
   <!-- <svg class="spinner" width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
     <style type="text/css">
@@ -84,6 +107,27 @@
     </style>
     <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
   </svg> -->
+
+  <!-- <script src="/js/jquery-3.5.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+  <!-- JS 요소 로딩 라이브러리 -->
+  <!-- <script src="/js/jquery.waitforimages.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/2.4.0/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
+
+  <script>
+  // background-image 로딩 후 spinner 클래스 제거
+  // Loading progress for Image items -- https://github.com/alexanderdickson/waitForImages
+  $('.item').waitForImages({
+    hasImgProperties: ['backgroundImage'],
+    finished: function() {
+      $('.item').removeClass('svg-spinner');
+    },
+    each: function() {
+    },
+    waitForAll: true
+  })
+  </script>
 
 </body>
 </html>

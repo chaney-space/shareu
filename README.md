@@ -1,5 +1,8 @@
 # 웹 기술 팁&amp;테크 공유
 
+/utils  - JS Partial 모음
+/css
+
 
 ### 마이크로 Web UI Interaction Resources
 
