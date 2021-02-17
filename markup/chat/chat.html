@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="./chat.css">
 </head>
-
 <body>
 
 <div class="d-flex flex-column">
@@ -29,8 +28,10 @@
   </header>
 
   <main class="d-flex h-100 flex-column ui ui-comment">
-
     <div class="container pt-3 chat-container">
+      <div class="chat-notice">
+        채팅 공지사항입니다.
+      </div>
       <div class="chat-date">
         2020년 10월 20일
       </div>
@@ -71,8 +72,13 @@
         <span class="time">15:45</span>
       </article>
     </div>
-
   </main>
+  <!-- 차단 정보 -->
+  <section class="chat-block-info">
+    <p>
+      차단한 대화 상대와 대화가 불가능합니다 
+    </p>
+  </section>
 
   <!-- pop Image Container -->
   <div class="image-popup">
