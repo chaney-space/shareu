@@ -15,3 +15,5 @@
     </li>
   </ul>
 </section>
+
+<h2><a href="https://chaney-space.github.io/timepicker.html" target="_blank">DEMO</a></h2>
