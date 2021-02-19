@@ -5,6 +5,9 @@
       JS Plugin: <a href="https://fengyuanchen.github.io/pickerjs/" traget="_blank">https://fengyuanchen.github.io/pickerjs/</a>
     </li>
     <li>
+      DOC: <a href="https://github.com/fengyuanchen/pickerjs/blob/master/README.md" target="_blank">https://github.com/fengyuanchen/pickerjs/blob/master/README.md</a>
+    </li>
+    <li>
       picker.css 수정, AM/PM Touch Select 추가, Spy underbar 추가
     </li>
     <li>
