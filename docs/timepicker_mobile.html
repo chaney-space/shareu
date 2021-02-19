@@ -72,8 +72,19 @@
         $("head").append('<style id="append-style">.timepicker::after{width:' + w + 'px; left: ' + initPos.left + dw + 'px;}</style>');
         // console.log(initPos.left + dw)
       });
-    })
 
+      // 선택한 시간 범위에 따른 am,pm 전환
+      $('.picker-cell').on('touchend', function(e){
+        var selectHour = timeEl.pick().data.hour.current;
+        $('.apm-item').removeClass('selected');
+        if(selectHour < 12 && selectHour >= 0) {
+          $('.apm-item:first-child').addClass('selected');
+        } else {
+          $('.apm-item:last-child').addClass('selected');
+        }
+      });
+    })
+    // Window resize support
     var resizeTimer;
     $(window).on('resize', function(e) {
       clearTimeout(resizeTimer);
