@@ -16,4 +16,4 @@
   </ul>
 </section>
 
-<h2><a href="https://chaney-space.github.io/timepicker_mobile.html" target="_blank">DEMO</a></h2>
+<h2><a href="https://chaney-space.github.io/shareu/timepicker_mobile.html" target="_blank">DEMO</a></h2>
