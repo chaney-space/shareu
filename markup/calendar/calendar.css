@@ -1,0 +1,122 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container  {
+  padding: 20px;
+}
+
+.calendar {
+  width: 100%;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 1px 1px 3px 2px #ccc;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.calendar-header h2 {
+  font-size: 5vw;
+}
+
+.calendar-week {
+  display: flex;
+  justify-content: space-between;
+}
+.calendar-week li {
+  width: calc(100% / 7);
+  margin: 0;
+  padding: .375rem;
+  font-size: 3vw;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+.calendar-days {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+}
+.calendar-days li {
+  position: relative;
+  width: calc(100% / 7);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.calendar-days li::after {
+  content: '';
+  display: block;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+.calendar-days li span {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  font-size: 1.143rem;
+  border-radius: 50%;
+  transition: all .2s ease;
+}
+@media screen and (max-width: 600px) {
+  .calendar-days li span {
+    font-size: .875rem;
+  }
+}
+.calendar-days li.today span {
+  background-color: yellow;
+}
+.calendar-days li:not(.range) span:hover, 
+.calendar-days li:not(.range) span:active, 
+.calendar-days li:not(.range) span:focus,
+.calendar-days li.start span,
+.calendar-days li.end span {
+  color: #fff;
+  background-color: #737ddd;
+}
+
+.calendar-days li.range::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 90%;
+  border-radius: 0;
+  background-color: rgb(170, 216, 247);
+}
+.calendar-days li.range.start::before {
+  left: auto;
+  right: 0;
+  width: 50%;
+}
+.calendar-days li.range.end::before {
+  right: 0;
+  width: 50%;
+}
+
+
